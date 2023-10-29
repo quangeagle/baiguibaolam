@@ -10,9 +10,44 @@ closeCart.addEventListener('click',() => {
   modalCart.classList.remove('active-cover')
 })
 modalCart.addEventListener('click',() => {
-  modalCart.style.display ='none';
+  modalCart.classList.remove('active-cover')
 })
 modalProduct.addEventListener('click', (event) => {
+  event.stopPropagation();
+})
+//Open menu
+const burgerMenu = document.querySelector('.header__action-burgerMenu');
+burgerMenu.addEventListener('click',() => {
+  document.querySelector('.nav__menu-outer').style.display = 'block'
+})
+const closeModal = document.querySelector('.nav__menu-outer');
+closeModal.addEventListener('click', () => {
+  closeModal.style.display = 'none'
+})
+const menuModal = document.querySelector('.nav__menu-sidebar');
+menuModal.addEventListener('click',(event) => {
+  event.stopPropagation();
+})
+//SideBarBlog
+const sideBar = document.querySelector('.item__sidebar span');
+const closeBlog = document.querySelector('.item__sidebar span i:nth-child(2)');
+
+sideBar.addEventListener('click', (event) => {
+  if(event.target !== closeBlog) {
+    document.querySelector('.item__sidebar span i:nth-child(1)').style.display = 'none';
+    document.querySelector('.item__sidebar span i:nth-child(2)').style.display = 'inline';
+    document.querySelector('.item__sidebar span').style = 'background-color: #b63d44';
+    let blogSidebar = document.querySelector('.blog__list-sidebar');
+    blogSidebar.classList.add('active-sidebar'); 
+  }
+})
+
+closeBlog.addEventListener('click', (event) => {
+  let blogSidebar = document.querySelector('.blog__list-sidebar');
+  blogSidebar.classList.remove('active-sidebar'); 
+  document.querySelector('.item__sidebar span i:nth-child(1)').style.display = 'inline';
+  document.querySelector('.item__sidebar span i:nth-child(2)').style.display = 'none';
+  document.querySelector('.item__sidebar span').style = 'none';
   event.stopPropagation();
 })
 
@@ -38,202 +73,243 @@ function showSlides(n) {
     slides[i].style.display = "none";  
   }
   for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" active", "");
+    dots[i].className = dots[i].className.replace("active", "");
   }
   slides[slideIndex-1].style.display = "block";  
   dots[slideIndex-1].className += " active";
 }
 
-//Detail Product
-function showInfo(menuNumber) {
-
-  for (let i = 1; i <= 4; i++) {
-      document.getElementById('info' + i).style.display = 'none';
-  }
-  document.getElementById('info' + menuNumber).style.display = 'block';
-
- 
-}
-// slide show sản phẩm
-var currentIndex = 0;
-var slideWidth = 300; 
-var numSlides = document.querySelectorAll('.news-item').length;
-
-var prevButton = document.getElementById('prevButton');
-var nextButton = document.getElementById('nextButton');
-var sliderContent = document.querySelector('.other-product2');
-
-prevButton.addEventListener('click', function() {
-  currentIndex--;
-  if (currentIndex < 0) {
-      currentIndex = numSlides - 1;
-  }
-  updateSlider();
-});
-
-nextButton.addEventListener('click', function() {
-  currentIndex++;
-  if (currentIndex >= numSlides) {
-      currentIndex = 0;
-  }
-  updateSlider();
-});
-
-function updateSlider() {
-  var offsetX = -currentIndex * slideWidth;
-  sliderContent.style.transform = 'translateX(' + offsetX + 'px)';
-}
 //Cart
+let btnCart = document.querySelectorAll('.product__cart-btn');
+btnCart.forEach((btn) => {
+  btn.addEventListener('click',(event) => {
+    let btnItem = event.target;
+    let productCart = btnItem.parentNode;
+    let productBanner = productCart.parentNode;
+    let productItem = productBanner.parentNode;
+    let productImg = productItem.querySelector('.product-img.default').src;
+    let productName = productItem.querySelector('.name__product').innerText;
+    let productPrice = productItem.querySelector('.product__newPrice').innerText;
+    addToCart(productName,productImg,productPrice);
+  })
+})
+function addToCart(productName,productImg,productPrice){
+  let products = localStorage.getItem('products') ? JSON.parse(localStorage.getItem('products')) : [];
+  let id = productName;
+  let checkProduct = products.some(value => value.id === id);
+  if(!checkProduct){
+    products.push({
+      id:id,
+      name:productName,
+      img:productImg,
+      price:productPrice,
+      quantity:1
+    })
+    localStorage.setItem('products', JSON.stringify(products));
+    renderCart();
+    calculatorTotal();
+    totalMoney();
+  }
+  else {
+    let product = products.find(value => value.id === id);
+    let getIndex = products.findIndex(value => value.id === id);
+    products[getIndex] = {
+      ...product,
+      quantity:++product.quantity
+    };
+    localStorage.setItem('products', JSON.stringify(products));
+    renderCart();
+    totalMoney();
+  }
+}
+function renderCart(){
+  let products = localStorage.getItem('products') ? JSON.parse(localStorage.getItem('products')) : [];
+  if(products.length <1){
+    document.querySelector('.cartTail.cart__body').innerHTML = ''
+    document.querySelector('.cart__body').innerHTML = `
+    <div class="cart__body-notification">
+    <span>
+      <i class="fi fi-rs-cart-minus"></i>
+    </span>
+    <span>
+      Chưa có sản phẩm trong giỏ hàng
+    </span>
+  </div>
+    `
+  }
+  else {
+    document.querySelector('.cartTail.cart__body').innerHTML = `
+    <div class="showCart__subtotal">
+    <span class="showCart__total-title">
+      TỔNG SỐ PHỤ
+    </span>
+    <span>
+      <span class="showCart__total-price">
+        0
+      </span>
+      <sup>₫</sup>
+    </span>
+  </div>
+  <a href="/cart.html" class="showCart__open-cart" onclick=" renderDetail()">
+    XEM GIỎ HÀNG
+  </a>
+  <a href="#" class="showCart__payment">
+    THANH TOÁN
+  </a>
+    `
+    let showCart = '';
+    products.map((value,index) => {
+    showCart+=`
+    <div class="showCart">
+      <span class="showCart__img">
+        <img src="${value.img}" alt="">
+      </span>
+      <span class="showCart__content">
+        <p class="showCart__desc">
+          ${value.name} 
+        </p>
+        <span class="showCart__total">
+          <span class="showCart__quantity">
+            <span class="showCart__quantity-count">${value.quantity}</span>
+          </span>
+          <span> 
+            x
+          </span>
+          <span class="showCart__unitPrice">${value.price}</span>
+          <sup>₫</sup>
+        </span>
+      </span>
+      <span class="showCart__close"> 
+        <i onclick="deleteCart(${index})" class="fi fi-rs-cross-small"></i>
+      </span>
+    </div>
+    `
+  })
+  document.querySelector('.cart__render').innerHTML = showCart;
+  }
+}
+function renderDetail(){
+  let products = localStorage.getItem('products') ? JSON.parse(localStorage.getItem('products')) : [];
+  let showCart = '';
+  products.map((value,index) => {
+    showCart+=`
+    <tr class="displayProd">
+    <td class="product__remove">
+      <i onclick="deleteCart(${index})" class = "fi fi-rs-circle-cross" style ="cursor: pointer;"></i>          
+    <td class="product__thumbnail">
+      <img src="${value.img}" alt="">
+    </td>
+    <td class="product__Item">
+      ${value.name}
+    </td>
+    <td class="product__price">
+      <span class="product__price-money">
+        ${value.price}
+      </span>
+      <sup>₫</sup>
+    </td>
+    <td class="product__count">
+      <div class="calculate">
+        <span class="calMinus" onclick="minusQuantity(${index},${value.quantity})">
+          -
+        </span>
+        <span class="calCount">${value.quantity}</span>
+        <span class="calPlus" onclick="plusQuantity(${index})">
+          +
+        </span>
+      </div>
+    </td>
+    <td class="product__tempPrice">
+      <span class="product__tempPrice-money">
+        ${(value.quantity * value.price.replace(/\./g, '')).toLocaleString()}
+      </span>
+      <sup>₫</sup>
+    </td>
+  </tr>
+    `
+  })
+  document.getElementById('products-cart').innerHTML = showCart;
+}
 
-// const products = [
-//   {
-//     id: 1,
-//     name: 'Run star HIKE low black white',
-//     image: '/assets/img/product/hike_low.jpg',
-//     price: '1,100,000'
-//   },
-//   {
-//     id: 2,
-//     name: 'Converse Renew Canvas',
-//     image: '/assets/img/product/chunk_renew.png',
-//     price: '1,600,000'
-//   },
-//   {
-//     id: 3,
-//     name: 'Converse Run Star Move',
-//     image: '/assets/img/product/move_platform.png',
-//     price: '1,900,000'
-//   },
-//   {
-//     id: 4,
-//     name: 'Run star HIKE low black white',
-//     image: '/assets/img/product/run_star_hike_default_1.png',
-//     price: '1.100,000'
-//   }
-// ];
-// let productInCart = localStorage.getItem('products') ? JSON.parse(localStorage.getItem('products')) : [];
+function deleteCart(index){
+  let products = localStorage.getItem('products') ? JSON.parse(localStorage.getItem('products')) : [];
+  products.splice(index,1);
+  localStorage.setItem('products', JSON.stringify(products));
+  renderCart();
+  calculatorTotal();
+  totalMoney();
+  renderDetail()
+}
+function calculatorTotal() {
+  let products = localStorage.getItem('products') ? JSON.parse(localStorage.getItem('products')) : [];
+  document.querySelector('.cart__subtotal-count').innerText = products.length;
+}
 
-// function saveToLocalStorage () {
-//   localStorage.setItem('products', JSON.stringify(productInCart));
-// }
+function totalMoney() {
+  let products = localStorage.getItem('products') ? JSON.parse(localStorage.getItem('products')) : [];
+  if (products != []) {
+    let total = 0;
+    for (let i = 0; i < products.length; i++) {
+      total += products[i].quantity * products[i].price.replace(/\./g, '');
+    }
+    document.getElementById("total").innerText = total.toLocaleString()
+    document.querySelector('.showCart__total-price').innerText = total.toLocaleString();
+    document.getElementById('tempValue').innerHTML = total.toLocaleString();
+    document.getElementById('subValue').innerHTML = total.toLocaleString();
+  }
+}
 
-// //Index page
-// function renderProducts () {
-//   let data = ``;
-//   products.map(value => {
-//     data += `
-//       <div class='col-3'>
-//         <div class='card'>
-//           <img src='${value.image}' class='card-img-top' alt=''>
-//           <div class='card-body'>
-//             <h5 class='card-title'>${value.name}</h5>
-//             <p class='card-text'>${value.price}</p>
-//             <button onclick='addToCart(${value.id})' class='btn btn-primary'>Add to cart</button>
-//           </div>
-//         </div>
-//       </div>
-//     `;
-//   });
-//   document.getElementById('products').innerHTML = data;
-// }
+function plusQuantity(index){
+  let products = localStorage.getItem('products') ? JSON.parse(localStorage.getItem('products')) : [];
+  products[index] = {
+    ...products[index],
+    quantity:++products[index].quantity
+  }
+  localStorage.setItem('products', JSON.stringify(products));
+  renderDetail();
+  totalMoney();
+}
+function minusQuantity(index,quantity){
+  let products = localStorage.getItem('products') ? JSON.parse(localStorage.getItem('products')) : [];
+  if(quantity > 1 ){
+    products[index] = {
+      ...products[index],
+      quantity:--products[index].quantity
+    }
+  }
+  else {
+    alert('Quantity min is 1')
+  }
+  localStorage.setItem('products', JSON.stringify(products));
+  renderDetail();
+  totalMoney();
+}
 
-// function addToCart () {
-//   let idPro  = products.id;
-//   let id = idPro.value;
-//   let checkProduct = productInCart.some(value => value.id === id);
+function loadPage(){
+  renderCart();
+  calculatorTotal();
+  totalMoney();
+}
+function CartloadPage(){
+  renderCart();
+  renderDetail();
+  calculatorTotal();
+  totalMoney();
+}
+//Product tab
+// const tabs = document.querySelectorAll('[data-target]'),
+//  tabContents = document.querySelectorAll('[content]');
+// tabs.forEach((tab) => {
+//   tab.addEventListener('click', () => {
+//     const target = document.querySelector(tab.dataset.target);
+//     tabContents.forEach((tabContent) => {
+//       tabContent.classList.remove('active-tab');
+//     })
+//     target.classList.add('active-tab');
 
-//   if (!checkProduct) {
-//     let product = products.find(value => value.id === id);
-//     productInCart.unshift({
-//       ...product,
-//       quantity: 1
-//     });
-//     saveToLocalStorage();
-//     calculatorTotal();
-//   } else {
-//     let product = productInCart.find(value => value.id === id);
-//     let getIndex = productInCart.findIndex(value => value.id === id);
-//     productInCart[getIndex] = {
-//       ...product,
-//       quantity: ++product.quantity
-//     };
-//     saveToLocalStorage();
-//   }
-// }
-
-// function calculatorTotal () {
-//   document.getElementById('quantity').innerHTML = productInCart.length;
-// }
-
-// function indexLoadPage () {
-//   renderProducts();
-//   calculatorTotal();
-// }
-
-// //Cart page
-// function renderProductsToTable () {
-//   let data = ``;
-//   productInCart.map((value, index) => {
-//     data += `
-//       <tr>
-//         <td>${value.name}</td>
-//         <td><img width='100' src='${value.image}' alt=''></td>
-//         <td>${value.price}</td>
-//         <td>
-//           <button onclick='plusQuantity(${index})' class='btn btn-secondary'>+</button>
-//           <span class='mx-2'>${value.quantity}</span>
-//           <button onclick='minusQuantity(${index}, ${value.quantity})' class='btn btn-secondary'>-</button>
-//         </td>
-//         <td>${(value.quantity * value.price.replace(/,/g, '')).toLocaleString()}</td>
-//         <td><button onclick='deleteProductInCart(${index})' class='btn btn-danger'>Delete</button></td>
-//       </tr>
-//     `;
-//   });
-//   document.getElementById('products-cart').innerHTML = data;
-// }
-
-// function plusQuantity (index) {
-//   productInCart[index] = {
-//     ...productInCart[index],
-//     quantity: ++productInCart[index].quantity
-//   };
-//   saveToLocalStorage();
-//   renderProductsToTable();
-//   totalMoney()
-// }
-
-// function minusQuantity (index, quantity) {
-//   if (quantity > 1) {
-//     productInCart[index] = {
-//       ...productInCart[index],
-//       quantity: --productInCart[index].quantity
-//     };
-//     saveToLocalStorage();
-//     renderProductsToTable();
-//     totalMoney()
-//   } else {
-//     alert('Quantity min is 1');
-//   }
-// }
-
-// function deleteProductInCart (index) {
-//   productInCart.splice(index, 1);
-//   saveToLocalStorage();
-//   renderProductsToTable();
-//   totalMoney()
-// }
-
-// function totalMoney () {
-//   if (productInCart && Array.isArray(productInCart) && productInCart.length > 0) {
-//     let total = 0;
-//     for (let i = 0; i < productInCart.length; i++) {
-//       total += productInCart[i].quantity * productInCart[i].price.replace(/,/g, '');
-//     }
-//     document.getElementById("total-money").innerHTML = total.toLocaleString()
-//   }
-// }
-
-// function cartLoadPage () {
-//   renderProductsToTable();
-//   totalMoney();
-// }
+//     tabs.forEach((tab) => {
+//       tab.classList.remove('active-tab');
+//     })
+//     tab.classList.add('active-tab');
+//   })
+// })

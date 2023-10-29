@@ -5,10 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Detail Product</title>
   <link rel="stylesheet" href="/assets/css/detailPro.css">
-  <link rel="stylesheet" href="assets/icon/fontawesome-free-6.4.2-web/css/all.min.css">
+
   <link rel="stylesheet" href="/assets/css/style.css">
   <!--=============== FLATICON ===============-->
   <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-straight/css/uicons-regular-straight.css'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css">
 
 </head>
 <body>
@@ -24,8 +25,8 @@
         <ul class="nav__list">
           <li class="nav__item"><a href="/home.html">TRANG CHỦ</a></li>
           <li class="nav__item"><a href="/productsCategory.html">GIÀY</a></li>
-          <li class="nav__item"><a href="/detailProducts.html">CONVERSE</a></li>
-          <li class="nav__item"><a href="/detailProducts.html">VANS</a></li>
+          <li class="nav__item"><a href="/converseCategory.html">CONVERSE</a></li>
+          <li class="nav__item"><a href="/vansCategory.html">VANS</a></li>
           <li class="nav__item"><a href="/productsCategory.html">HOT SALE</a></li>
           <li class="nav__item"><a href="#">BLOG</a>
             <i class="fi fi-rs-angle-small-down"></i>
@@ -43,7 +44,8 @@
         </div>
         <div class="header__action-heart">
           <a href="#">         
-            <i class="fi fi-rs-heart"></i>
+            <i class="fi fi-rs-heart">
+            </i>
           </a>
           <span class="count">0</span>
         </div>
@@ -52,10 +54,11 @@
             <i class="fi fi-rs-shopping-cart"></i>          
           </a>
           <span class="cart__subtotal">
-            <span class="cart__subtotal-count" id="quantity">0</span>
+            <span class="cart__subtotal-count">0</span>
             <span class="cart__subtotal-divider">/</span>
             <span class="cart__subtotal-totalAmount">
-              <span class="cart__subtotal-total" id="total">0₫</span>
+              <span class="cart__subtotal-total" id="total">0</span>
+              <sup>₫</sup>
             </span>
           </span>
         </div>
@@ -74,23 +77,33 @@
       <h2>SHIP HÀNG TOÀN QUỐC</h2>
     </div>
 </div>
+<div class="return">
+  <div>
+    <i class="fa-solid fa-arrow-left"></i>
+  </div>
+  <div >
+   <i class="fa-solid fa-arrow-right"></i>
+   </div>
+</div>
+
   <!-- Product by quangeagle and Tung -->
   <main id="home">
+   
     <div class="product">
       <div class="product-price">
        <div class="img-mini">
         <div>
-           <img src="assets/img/z4695858391690_3ce0d0da7433b0d9591666ca42d27140-1-600x600.jpg">
+           <img src="assets/img/1970s-navy-1-600x600.png">
         </div>
         <div>
-         <img src="assets/img/z4695858391690_3ce0d0da7433b0d9591666ca42d27140-1-600x600.jpg">
+         <img src="assets/img/1970s-navy-1.png">
         </div>
         <div>
-            <img src="assets/img/z4695784859484_4e2f62a5bbb0001ebf36406a0f04d2ee-600x800.jpg">
+            <img src="assets/img/1970s-navy-1.png">
         </div>
        </div>
        <div class="img-detail">
-        <img src="assets/img/z4695784859484_4e2f62a5bbb0001ebf36406a0f04d2ee-600x800.jpg">
+        <img src="assets/img/1970s-navy-1-600x600.png">
        </div>
        <div class="price">
         <h1>Run star HIKE low black white</h1><br>
@@ -498,7 +511,7 @@
             </div> 
      </div>
      <button id="prevButton">&#8592;</button>
-        <button id="nextButton">&#8594;</button>
+    <button id="nextButton">&#8594;</button>
      </div>
      
     </div>
@@ -591,6 +604,6 @@
   </footer>
   
 
-  <script src="assets/js/javascript.js"></script>
+  <script src="assets/js/product-detail.js"></script>
 </body>
 </html>
