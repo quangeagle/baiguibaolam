@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="/assets/css/style.css">
   <!--=============== FLATICON ===============-->
   <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-straight/css/uicons-regular-straight.css'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css">
 </head>
 <body onload="loadPage()">
   <!--========= HEADER ========-->
@@ -56,14 +57,65 @@
             </li>
             <li class="nav__item"><a href="#">DANH SÁCH YÊU THÍCH</a></li>
             <li class="nav__item">
-              <a href="#">
-                <span class="nav__item-logIn">ĐĂNG NHẬP</span> /
-                <span class="nav__item-SignIn">ĐĂNG KÍ</span>
-              </a>
+                <a class="login">
+                  <span class="nav__item-logIn">ĐĂNG NHẬP</span> /
+                  <span class="nav__item-SignIn">ĐĂNG KÍ</span>
+                </a>
             </li>
+          
           </ul>
       </div>
       </div>
+      
+        <div class="login-item">
+          <div class="show-login">
+        <div class="login-header">
+          <div class="cart__login-close">
+            <div class="login__title">Đăng Nhập </div>
+            <div class="close__login">
+              <span>
+                CLOSE 
+              </span>
+              <span>
+                <i class="fi fi-rs-minus-small"></i>
+                <i class="fi fi-rs-cross-small"></i>
+              </span>
+            </div>
+            
+          </div>
+        </div>
+        <div class="login-body">
+          <label for="username">Tên người dùng hoặc email <span>*</span></label><br>
+          <input type="text" id="username" name="username"><br>
+          <label for="pwd">Mật khẩu <span>*</span></label><br>
+          <input type="password" id="pwd" name="pwd"><br><br>
+            <button>Đăng Nhập</button>
+            <div class="checktk">
+              <div>
+                <input type="checkbox">
+                <label>Nhớ Tài Khoản </label><br>
+              </div>
+              <div>
+                <i class="fa-solid fa-gear"></i>
+                <a href="#">Quên Mật Khẩu ?</a><br>
+              </div>
+            </div>
+           
+        </div>
+        <div class="login-footer">
+            <div class="login__footer-icon">
+              <i class="fa-regular fa-user"></i>
+            </div>
+            <div class="login__footer-account">
+            <P>Chưa Có Tài Khoản?</P>
+            </div>
+            <a href="account.html">Tạo một tài khoản</a>
+        </div>
+          </div>
+         </div>
+    
+      
+      <div class=""></div>
       <div class="header__user-actions">
         <div class="header__action-search">
           <i class="fi fi-rs-search"></i>        
@@ -236,7 +288,7 @@
                 <i class="fi fi-rs-heart"></i>
               </a>
               <a href="#" class="action__btn" aria-label="So sánh">
-                <i class="fi fi-rs-code-compare"></i>              </a>
+                <i class="fi fi-rs-code-compare"></i></a>
             </div>
 
             <div class="product__badge">

@@ -28,6 +28,22 @@ const menuModal = document.querySelector('.nav__menu-sidebar');
 menuModal.addEventListener('click',(event) => {
   event.stopPropagation();
 })
+const open1 = document.querySelector('.login');
+const close1 = document.querySelector('.cart__login-close');
+const modal = document.querySelector('.login-item');
+const modal1 = document.querySelector('.show-login');
+open1.addEventListener('click',() => {
+  modal.classList.add('active-cover');
+})
+close1.addEventListener('click',() => {
+  modal.classList.remove('active-cover')
+})
+modal.addEventListener('click',() => {
+  modal.classList.remove('active-cover')
+})
+modal1.addEventListener('click', (event) => {
+  event.stopPropagation();
+})
 //SideBarBlog
 const sideBar = document.querySelector('.item__sidebar span');
 const closeBlog = document.querySelector('.item__sidebar span i:nth-child(2)');
@@ -296,6 +312,15 @@ function CartloadPage(){
   calculatorTotal();
   totalMoney();
 }
+// phần hiện cách thanh toán 
+function cachthanhtoan(pay) {
+  document.getElementById('thanhtoantienmat').style.display = 'none';
+  document.getElementById('thanhtoanchuyenkhoan').style.display = 'none';
+  document.getElementById(`thanhtoan${pay}`).style.display = 'block';
+}
+
+
+
 //Product tab
 // const tabs = document.querySelectorAll('[data-target]'),
 //  tabContents = document.querySelectorAll('[content]');

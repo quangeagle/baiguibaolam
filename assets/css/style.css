@@ -424,9 +424,9 @@ body {
     overflow: hidden;
   }
 
-  .product__banner .product-images {
+  /* .product__banner .product-images {
     display: block;
-  }
+  } */
 
   .product-img {
     position: absolute;
@@ -1453,6 +1453,487 @@ th,td {
 .breadcrumb__link-home:hover {
   text-decoration: underline;
 }
+/* =========LOGIN By Quangeagle======== */
+.login-item {
+  display: none;
+  align-items: center;
+  justify-content: flex-end;
+}
+.login-item.active-cover{
+  display: flex;
+}
+.login-item {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(9, 9, 9, 0.5);
+  z-index: 10;
+}
+.login-item .show-login {
+  width: 340px;
+  height: 100%;
+  background-color: #ffffff;
+  animation:RightToLeft 0.3s ease;
+}
+@keyframes RightToLeft {
+  from {
+    transform: translateX(300px)
+  }
+  to {
+    transform: translateX(0)
+  }
+}
+.login-header{
+  height:91px;
+  margin:0px 0px 20px;
+  padding:28px 20px ;
+  background-color: #000;
+}
+.login-body{
+  height:306px;
+  margin:0px 20px;
+  padding:0px 0px 20px;
+
+}
+.login-footer{
+ height:169px;
+ margin:0px 20px;
+ padding:20px 0px;
+}
+.cart__login-close>div:nth-child(1){
+  letter-spacing: .6px;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+    font-size: 24px;
+    color:#ffffff;
+}
+.cart__login-close{
+  display:flex;
+  justify-content: space-between;
+}
+.cart__login-close>div:nth-child(2)
+{
+  text-transform: uppercase;
+  font-size: 12px;
+  cursor: pointer;
+  color:#ffffff;
+  line-height: 35px;
+}
+
+.cart__login-close>div:nth-child(2)>span>i:nth-child(2)
+{
+display:none;
+}
+.cart__login-close>div:nth-child(2)>span:hover>i:nth-child(1)
+{
+display:none;
+}
+.cart__login-close>div:nth-child(2)>span:hover>i:nth-child(2)
+{
+display:inline-block;
+}
+.cart__login-close>div>span>i
+{
+margin-left: -10px;
+}
+.cart__login-close>div>span
+{
+margin-right: 10px;
+}
+.login-body>input{
+  border: #000 solid 1px;
+  width:100%;
+  height:30px;
+  margin-bottom: 20px;
+}
+.login-body>label{
+  margin-bottom: 5px;
+  display:inline-block;
+}
+.login-body>label>span{
+  color:red;
+}
+.login-body>button{
+  display: inline-block;
+    text-align: center;
+    font-size: 14px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    line-height: 18px;
+    border: #000 solid 2px;
+    width:300px;
+    /* margin-top: 10px; */
+    text-transform: uppercase;
+    letter-spacing: .3px;
+    cursor:pointer;
+}
+.login-body>button:hover{
+  color:#ffffff;
+  background-color: #474747;
+  cursor:pointer;
+}
+.checktk{
+  margin-top: 20px;
+  display:flex;
+  justify-content: space-between;
+  font-size: 14px;
+}
+.checktk>div:nth-child(2):hover>a,
+.checktk>div:nth-child(2):hover>i
+{
+  color:red;
+}
+.checktk>div:nth-child(2)>a
+{
+  color:rgb(0, 0, 0);
+}
+.login-footer{
+  border-bottom: #000 solid 1px;
+  border-top: #000 solid 1px;
+  text-align: center;
+}
+.login__footer-account
+{
+  display: block;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+.login__footer-icon{
+  display: block;
+    color: rgba(135, 135, 135, 0.15);
+    font-size: 54px;
+    line-height: 54px;
+    font-weight: normal;
+    margin-bottom: 15px;
+}
+.login-footer>a{
+  text-decoration-line:underline;
+  text-underline-offset: 5px;
+  color:#807f7f;
+}
+.login-footer>a:hover{
+  color:#000000;
+}
+.Account__title{
+  height:100px;
+  background-color: #000;
+  color:#ffffff;
+  text-align: center;
+}
+.Account__title>h1 {
+  line-height:1.4 ;
+  font-size: 36px;
+}
+.Account__title-mini{
+ margin-top: 20px;
+}
+.Account__body{
+  height:500px;
+  background-color: #ffffff;
+  padding:30px;
+  display:flex;
+}
+.Account__body2{
+  flex:1;
+  border-right: #000 solid 2px;
+padding:40px 60px 60px;
+}
+.Account__body2-login>h2>i{
+  font-size: 24px;
+  margin-right: 10px;
+}
+.Account__body2-login>h2>span{
+  font-size: 34px;
+  padding-left: 5px;
+  }
+.Account__body3{
+  flex:1;
+  text-align: center;
+  padding: 40px 60px 60px ;
+}
+.Login__title{
+  margin-bottom: 20px;
+  font-size: 30px;
+}
+.login__description{
+  margin-bottom: 30px;
+}
+.Login__button>button{
+  text-align: center;
+  font-size: 14px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  line-height: 18px;
+  text-transform: uppercase;
+  letter-spacing: .3px;
+  border: 1px solid;
+  background-color: #000;
+  color:#ffffff;
+  cursor:pointer;
+  margin-left: 250px;
+}
+.Login__button>button:hover{
+  background-color: #3c3b3b;
+}
+.Signup_button>button{
+  text-align: center;
+  font-size: 14px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  line-height: 18px;
+  text-transform: uppercase;
+  letter-spacing: .3px;
+  border: 1px solid;
+  background-color: #000;
+  color:#ffffff;
+  cursor:pointer;
+  display:none;
+  margin-left: 250px;
+}
+
+.Signup_button>button:hover{
+  background-color: #3c3b3b;
+}
+.Account__body2-email>input{
+border:#000 solid 1px;
+width:100%;
+height:35px;
+}
+.Account__body2-email{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.Account__body2-email>label{
+  margin-bottom: 10px;
+  display:inline-block;
+  }
+  .Account__body2-emailnote{
+    margin-top: 15px;
+    margin-bottom: 25px;
+  }
+  .button__login{
+    margin-top: 20px;
+  }
+  .button__login>button{
+    display: inline-block;
+    text-align: center;
+    font-size: 16px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    line-height: 18px;
+    border: #000 solid 2px;
+    width:100%;
+    text-transform: uppercase;
+    letter-spacing: .3px;
+    cursor: pointer;
+  }
+  .button__login>button:hover{
+    color:#ffffff;
+    background-color: #3C3C3C;
+  }
+  .Account__body2-email>label>span{
+  color:red;
+  }
+/* ===========Phần payment by quangeagle========= */
+#main1{
+  height:1042px;
+}
+.infor input{
+  width: 100%;
+    height: 40px;
+    border: 1px solid rgba(129, 129, 129, 0.25);
+    font-size: 14px;
+    line-height: 18px;
+    padding: 0 10px;
+    transition: border-color .5s;
+    box-shadow: none;
+    border-radius: 0;
+}
+.name1,.name2{
+  flex:1;
+}
+.name2{
+  padding-left: 4px;
+}
+.infor label{
+    font-size: 14px;
+    color: #1B1919;
+    font-weight: 400;
+    margin-bottom: 10px;
+    display: inline-block;
+   
+}
+.checkout>div{
+  margin-bottom: 10px;
+}
+.red{
+  color:red;
+}
+.diachi>input
+{
+  margin-bottom: 10px;
+}
+.voucher{
+  width:958px;
+  height:21px;
+  margin-left: 40px;
+  margin-bottom: 25px;
+  margin-top: 30px;
+}
+.voucher p{
+  color:#717171;
+}
+.voucher a{
+  color:#000;
+  font-weight: 500;
+}
+.pay{
+  margin-left: 30px;
+  margin-right: 30px;
+  display:flex;
+}
+.infor{
+  flex:1;
+}
+.payment{
+  flex:1;
+}
+.information,.checkout{
+  margin:8px 0px 0px;
+  padding:40px 30px;
+}
+.name{
+  display:flex;
+}
+.inforadd{
+  margin-left: 55px;
+  margin-top: -40px;
+}
+.information{
+  background-color: #f8f8f8;
+    background-image: url(https://conversestore.vn/wp-content/themes/converse/images/checkout-border.jpg);
+    background-position: left top;
+    background-repeat: no-repeat;
+    padding: 40px 30px;
+    margin-top: 8px;
+
+}
+.information h3{
+  margin-bottom: 10px;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  font-weight: bold;
+  font-size: 22px;
+
+}
+
+.checkout{
+  height:70%;
+}
+.total{
+  height:250px;
+  width:273;
+  background-color: white;
+    padding: 20px 25px 0px 25px;
+    display:flex;
+    flex-direction:column;
+}
+.left{
+  float:left;
+}
+.right{
+  float:right;
+}
+.total>div{
+  height:50px;
+}
+.inforadd textarea{
+  height: auto;
+    line-height: 1.5;
+    padding: 10px 15px;
+    width: 60%;
+  
+}
+.inforadd h3{
+  margin-bottom: 20px;
+}
+.inforadd label{
+  margin-bottom: 10px;
+  display:inline-block;
+}
+.thanhtoan input{
+margin-right: 10px;
+}
+.thanhtoan{
+  margin-top: 15px;
+}
+.tienmat1 p{
+  padding: 10px 15px;
+  background-color: white;
+  margin-top: 10px;
+}
+.tienmat p{
+  padding: 10px 15px;
+  background-color: white;
+  margin-top: 10px;
+}
+.tienmat1{
+  display:none;
+}
+.chuyenkhoan{
+  margin-top: 10px;
+}
+.dathang{
+  margin-top: 10px;
+}
+.dathang button{
+  width: 100%;
+  border: #000;
+  background-color: #b63d44;
+  height: 35px;
+  font-size: 25px;
+  letter-spacing: 1px;
+  color: white;
+  margin-top: 10px;
+
+}
+.dathang>button:hover{
+  background-color: #af4c51;
+  cursor:pointer;
+}
+.total1{
+  border-bottom: #ebe8e8 0.3px solid;
+  margin-bottom: 5px;
+}
+.total1 p{
+  font-size: 16px;
+  font-weight: 600;
+}
+.total3>.left{
+  font-size: 16px;
+  font-weight: 600;
+}
+.total4 p{
+  font-size: 24px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.total4 span{
+  font-size: 24px;
+  color:red;
+}
 /* ======== RESPONSIVE ========= */
 @media (min-width: 1024px) {
   .nav__menu-outer,
@@ -1491,6 +1972,9 @@ th,td {
       transform: translateX(0)
     }
   }
+  
+  
+ 
   .nav__menu-sidebar .nav__list {
     display: flex;
     flex-direction: column; 
@@ -1663,6 +2147,7 @@ th,td {
     background-color: rgba(0,0,0,0.5);
     z-index: 10;
   }
+  
   .nav__menu-outer .nav__menu-sidebar {
     max-width: 270px;
     width: 100%;
@@ -1788,7 +2273,7 @@ th,td {
   }
   /* Album Banner */
 }
-
+/* Phân */
 
 
 

@@ -36,3 +36,33 @@ function showInfo(menuNumber) {
       var offsetX = -currentIndex * slideWidth;
       sliderContent.style.transform = 'translateX(' + offsetX + 'px)';
   }
+
+  let amountElement = document.getElementById('amount');
+let amount = amountElement.value;
+// console.log(amount);
+let render = (amount) =>   {
+    amountElement.value = amount
+}
+// Handle Plus
+let handlePlus = () =>{
+    console.log(amount);
+    amount++
+    render(amount);
+}
+
+//Handle Minus
+let handleMinus = () =>{
+    console.log(amount);
+    if (amount > 1)
+    amount--;
+    render(amount);
+}
+
+amountElement.addEventListener('input', ()=>{
+    console.log(amount);
+    amount = amountElement.value;
+    amount = parseInt(amount);
+    amount = (isNaN(amount)|| amount==0)?1:amount;
+    render(amount);
+    console.log(amount);
+})

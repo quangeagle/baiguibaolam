@@ -836,3 +836,46 @@ button {
   border: none;
   cursor: pointer;
 }
+
+.tinhtien-soluong {
+  margin-top: 40px;
+}
+
+.soluong-giohang {
+  display: flex;
+  justify-content: space-around;
+}
+
+.mua-ngay button{
+  height: 60px;
+  width: 250px;
+  background-color: #e1182c;
+  border: none;
+  font-weight: bold;
+  font-size: 20px;
+  color:white;
+  cursor: pointer;
+}
+
+.soluong #amount{
+  width: 80px;
+  height: 60px;
+  text-align: center;
+  border: 0.1px solid lightgray;
+}
+
+.soluong{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.soluong button{
+  cursor: pointer;
+  width: 35px;
+  height: 35px;
+  outline: none;
+  background: none;
+  border: 0px solid #ececec;
+}
