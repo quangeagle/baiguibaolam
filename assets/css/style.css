@@ -1633,7 +1633,6 @@ margin-right: 10px;
  margin-top: 20px;
 }
 .Account__body{
-  height:500px;
   background-color: #ffffff;
   padding:30px;
   display:flex;
@@ -1653,15 +1652,16 @@ padding:40px 60px 60px;
   }
 .Account__body3{
   flex:1;
-  text-align: center;
   padding: 40px 60px 60px ;
 }
 .Login__title{
   margin-bottom: 20px;
   font-size: 30px;
+  text-align: center;
 }
 .login__description{
   margin-bottom: 30px;
+  text-align: center;
 }
 .Login__button>button{
   text-align: center;
@@ -1934,6 +1934,23 @@ margin-right: 10px;
   font-size: 24px;
   color:red;
 }
+.an {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  display:none
+}
+
+.line {
+  flex: 1;
+  border-bottom: 1px solid #000;
+}
+
+.text {
+  padding: 0 10px;
+  z-index: 1;
+}
 /* ======== RESPONSIVE ========= */
 @media (min-width: 1024px) {
   .nav__menu-outer,
@@ -1941,6 +1958,29 @@ margin-right: 10px;
     display: none;
   }
 }
+@media (max-width: 768px) {
+  .Account__body{
+    display:flex;
+    flex-direction: column;
+  }
+  .an{
+    display:block
+  }
+  .Account__body2
+  {
+    border-right:none;
+}
+.an {
+  flex-direction: column; 
+}
+
+.line {
+  width: 100%;
+  border-bottom: none; 
+  border-right: 1px solid #000; 
+}
+}
+
 @media (min-width: 740px) and (max-width: 1024px) {
   /* ======= Menu ====== */
   .nav__menu,
@@ -2273,8 +2313,17 @@ margin-right: 10px;
   }
   /* Album Banner */
 }
-/* Phân */
+/* Phân test */
 
+
+#error-message {
+  color: red;
+  margin-top: 5px;
+}
+
+.hidden {
+  display: none;
+}
 
 
 

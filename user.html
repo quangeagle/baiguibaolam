@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detail Product</title>
+  <link rel="stylesheet" href="/assets/css/detailPro.css">
+
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <!--=============== FLATICON ===============-->
+  <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-straight/css/uicons-regular-straight.css'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css">
+
+</head>
+<body>
+    <style>
+        .menu{
+          flex:1;
+          margin-left: 30px;
+          margin-right: 30px;
+        }
+        .menu h3{
+            padding: 15px 20px;
+            text-align: center;
+            font-size: 16px;
+            background-color: black;
+            text-transform: uppercase;
+            font-weight: bold;
+            color: white;
+
+        }
+        .user{
+            flex:2.5;
+        }
+        .contaner{
+            display:flex;
+            margin-top: 30px;
+        }
+        .menunav ul li{
+            padding: 14px 20px;
+            display: block;
+            font-size: 12px;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: rgba(71, 71, 71, 0.8);
+            border-bottom: 1px solid rgba(136, 136, 136, 0.12);
+        }
+        .menunav ul{
+            border: 1px solid rgba(136, 136, 136, 0.12);
+        }
+        .nguoidung img{
+            max-width: 60px;
+            border-radius: 50%;
+            position:absolute;
+            top : 0px;
+            left:0px;
+            height:60px;
+            
+        }
+        .nguoidung{
+            margin-top: 30px;
+            position:relative;
+            margin-bottom: 20px;
+            height:70px;
+        }
+        .nguoidung1{
+            margin-left: 75px;
+            padding-top: 5px;
+        }
+        .nguoidung1 a{
+            color:black;
+        }
+        .p p{
+            padding: 20px;
+            background-color: #f9f9f9;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+        .khung{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            margin-top: 30px;
+            margin-left: -10px;
+            margin-right: -10px;
+
+        }
+        .khungmini{
+            color: rgba(71, 71, 71, 0.8);
+            display: block;
+            padding: 20px;
+            font-size: 14px;
+            text-align: center;
+            border: 1px solid rgba(136, 136, 136, 0.12);
+            width:33%;
+            padding-left: 10px;
+            padding-right: 10px;
+            margin-bottom: 20px;
+        }
+        .khungmini i{
+            font-size: 50px;
+            margin-bottom: 10px;
+        }
+        .khungmini:hover{
+            background-color:rgb(215, 215, 215) ;
+        }
+        .khungmini:hover i{
+            color:red;
+        }
+        .donhang{
+            padding: 14px 25px 14px 55px;
+            color: #3c763d;
+            border-color: #459647;
+            background-color: transparent;
+        }
+        .taixuong{
+            border: 2px solid;
+            padding: 14px 25px 14px 55px;
+            line-height: 1.4;
+            font-size: 14px;
+        }
+        .macdinh{
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        .diachi1{
+            display:flex;
+        }
+        .diachi1 div{
+            flex:1;
+        }
+        .diachi2 a,.diachi3 a{
+        font-size: 12px;
+        margin-left: 5px;
+        cursor:pointer;
+        }
+        .diachi1 h3{
+          display:inline-block;
+        }
+        .diachi1 p{
+          margin-top: 10px;
+        }
+      .ten1{
+        float:left;
+        width:47%;
+        margin-bottom: 30px;
+      }
+      .ten2{
+        float:right;
+        width:47%;
+      }
+      .diachithanhtoan input,.diachinhanhang input,.taikhoan input{
+        border: black 1px solid;
+        width:100%;
+        margin-top: 10px;
+        text-align: start;
+        font-size: 15px;
+      }
+     .tinh,.phone,.email1{
+      margin-bottom: 30px;
+     }
+     .quocgia{
+      clear:both;
+      margin-bottom: 20px;
+     }
+     .quocgia select{
+      margin-top: 10px;
+      width:100%;
+     }
+
+     .phone{
+      clear:both;
+     }
+.diachigiao{
+  clear:both;
+  margin-bottom: 20px;
+}
+.diachigiao1{
+margin-bottom: 20px;
+} 
+.luu{
+   padding: 10px 20px;
+    text-align: center;
+    background-color: #ECECEC;
+    color: #3E3E3E;
+    font-size: 12px;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+.taikhoan{
+ margin-bottom: 20px;
+}
+.uname,.psw,.pswn{
+  margin-left: 20px;
+ margin-bottom: 20px;
+}
+.uname input,.psw input,.pswn input{
+ width:80%;
+}
+.phone p{
+  font-size: 14px;
+}
+fieldset legend {
+    font-size: 20px;
+    text-transform: uppercase;
+    padding: 0 15px;
+    color: #3b3b3b;
+    letter-spacing: .3px;
+  }
+  .uname{
+    margin-top: 20px;
+  }
+    </style>
+  <!--=========HEADER========-->
+  <!-- Nav by quangeagle -->
+  <header id="header">
+    <nav class="nav container">
+      <a href="/home.html" class="nav__logo">
+        <img src="/assets/img/logo/logo_store.png" alt="" class="nav__logo-img">
+      </a>
+
+      <div class="nav__menu">
+        <ul class="nav__list">
+          <li class="nav__item"><a href="/home.html">TRANG CHỦ</a></li>
+          <li class="nav__item"><a href="/productsCategory.html">GIÀY</a></li>
+          <li class="nav__item"><a href="/converseCategory.html">CONVERSE</a></li>
+          <li class="nav__item"><a href="/vansCategory.html">VANS</a></li>
+          <li class="nav__item"><a href="/productsCategory.html">HOT SALE</a></li>
+          <li class="nav__item"><a href="#">BLOG</a>
+            <i class="fi fi-rs-angle-small-down"></i>
+            <ul class="blog__list">
+              <li class="blog__item"><a href="#">Thời trang</a></li>
+              <li class="blog__item"><a href="#">Lifestyle</a></li>
+              <li class="blog__item"><a href="#">Du lịch</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="header__user-actions">
+        <div class="header__action-search">
+          <i class="fi fi-rs-search"></i>        
+        </div>
+        <div class="header__action-heart">
+          <a href="#">         
+            <i class="fi fi-rs-heart">
+            </i>
+          </a>
+          <span class="count">0</span>
+        </div>
+        <div class="header__action-cart js-openCart">
+          <a href="#">
+            <i class="fi fi-rs-shopping-cart"></i>          
+          </a>
+          <span class="cart__subtotal">
+            <span class="cart__subtotal-count">0</span>
+            <span class="cart__subtotal-divider">/</span>
+            <span class="cart__subtotal-totalAmount">
+              <span class="cart__subtotal-total" id="total">0</span>
+              <sup>₫</sup>
+            </span>
+          </span>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <!--=========HOME========-->
+  <div class="custom__heading grid">
+    <div class="custom__heading-title">
+      <h2>HÀNG CÓ SẴN CHÍNH HÃNG</h2>
+    </div>
+    <div class="custom__heading-title">
+      <h2>ĐỔI TRẢ LINH HOẠT</h2>
+    </div>
+    <div class="custom__heading-title">
+      <h2>SHIP HÀNG TOÀN QUỐC</h2>
+    </div>
+</div>
+<div class="return">
+  <div>
+    <i class="fa-solid fa-arrow-left"></i>
+  </div>
+  <div >
+   <i class="fa-solid fa-arrow-right"></i>
+   </div>
+</div>
+<!-- main -->
+<main>
+    <div class="Account__title">
+        <h1>Tài Khoản</h1>
+        <div class="Account__title-mini">
+            <i class="fa-solid fa-house"></i> <span>Home / Tài Khoản</span>
+        </div>
+     </div>
+     <!-- hêt phần đầu  -->
+    <div class="contaner">
+        <div class="menu">
+            <h3>Tài khoản </h3>
+            <div class="menunav">
+                <ul>
+                   <li><a id="1" href="#" onclick="taikhoan(1)">Trang Tài Khoản</a></li>
+                   <li><a id="2" href="javascript:void(0);" onclick="taikhoan(2);">ĐƠN HÀNG</a></li>
+                   <li><a id="3" href="javascript:void(0);" onclick="taikhoan(3);">TẢI XUỐNG</a></li>
+                   <li><a id="4" href="javascript:void(0);" onclick="taikhoan(4);">ĐỊA CHỈ</a></li>
+                   <li><a id="5" href="javascript:void(0);" onclick="taikhoan(5);">TÀI KHOẢN</a></li>
+                   <li><a id="6" href="javascript:void(0);" onclick="taikhoan(6);">DANH SÁCH YÊU THÍCH</a></li>
+                   <li><a href="#">ĐĂNG XUẤT</a></li>
+                  
+                </ul>
+            </div>
+         <div class="nguoidung">
+           <img src="https://secure.gravatar.com/avatar/bd5a76371980c33e6f2ff2b737d045f6?s=92&d=mm&r=g">
+           <div class="nguoidung1">
+            <span>Tài khoản của <strong>Kidoking258</strong></span><br>
+            <a href="#">Đăng xuất </a>
+           </div>
+         </div>
+        </div>
+        <div class="user">
+            <div class="trangtaikhoan" id="infor1">
+                <div class="p" >
+                    <p>Xin chào <strong>kidoking258</strong> (không phải tài khoản <strong>kidoking258</strong>? Hãy thoát ra và đăng nhập vào tài khoản của bạn)</p>
+                    <p>Từ trang quản lý tài khoản bạn có thể xem đơn hàng mới, quản lý địa chỉ giao hàng và thanh toán, and sửa mật khẩu và thông tin tài khoản.</p>
+                </div>
+                <div class="khung">
+                    <div class="khungmini">
+                        <i class="fa-regular fa-pen-to-square"></i>
+                        <p>ĐƠN HÀNG </p>
+                    </div>
+                    <div class="khungmini">
+                        <i class="fa-solid fa-cloud-arrow-down"></i>
+                        <p>TẢI XUỐNG </p>
+                    </div>
+                    <div class="khungmini">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <p>ĐỊA CHỈ </p>
+                    </div>
+                    <div class="khungmini">
+                        <i class="fa-regular fa-user"></i>
+                      <p>TÀI KHOẢN </p>
+                    </div>
+                    <div class="khungmini">
+                        <i class="fa-regular fa-heart"></i>
+                        <p>YÊU THÍCH </p>
+                    </div>
+                    <div class="khungmini">
+                        <i class="fa-solid fa-right-from-bracket"></i>
+                        <p>Đăng Xuất </p>
+                    </div>
+                </div>
+            </div>
+            <!-- hết phần 1  -->
+            <div class="donhang" id="infor2" style="display:none;">
+                <p><i class="fa-solid fa-check"></i>  Bạn chưa có đơn hàng nào </p>
+            </div>
+            <!-- hết phần 2 -->
+            <div class="taixuong" id="infor3" style="display:none;">
+                <p><i class="fa-solid fa-triangle-exclamation"></i> Chưa mục nào được tải về </p>
+            </div>
+            <div class="yeuthich" id="infor6">
+              <i class="fa-thin fa-heart" style="color: #e0dcdc;"></i>
+              <p>DANH SÁCH YÊU THÍCH TRỐNG</p>
+            </div>
+            <!-- hết phần 3 -->
+            <div class="diachi" id="infor4" style="display:none;">
+                <p class="macdinh">Các địa chỉ bên dưới mặc định sẽ được sử dụng ở trang thanh toán sản phẩm.</p>
+                <div class="diachi1"  >
+                    <div class="diachi2">
+                        <h3>Địa chỉ thanh toán </h3><a  onclick="taikhoan(7);" >sửa</a>
+                        <p>Bạn vẫn chưa thêm địa chỉ nào</p>
+                    </div>
+                    <div class="diachi3">
+                        <h3>Địa chỉ giao hàng </h3><a onclick="taikhoan(8);">sửa</a>
+                        <p>Bạn vẫn chưa thêm địa chỉ nào</p>
+                    </div>
+                </div>
+            </div>
+            <div class="diachithanhtoan" style="display:none;" id="infor7">
+              <div class="ten">
+               <div class="ten1">
+                <label for="username">Tên<span>*</span></label><br>
+                <input type="text"  name="username"><br>
+               </div>
+               <div class="ten2">
+                <label for="username">Họ <span>*</span></label><br>
+                <input type="text" name="username"><br>
+               </div>
+              </div>
+              <div class="diachigiao">
+                <label for="diachi">Địa Chỉ <span>*</span></label><br>
+                <input class="diachigiao1" type="text"  name="diachi"><br>
+                <input type="text"  name="diachi" placeholder="apartment,suite,unit,etc"><br>
+              </div>
+              <div class="tinh">
+                <label for="tinh">Tỉnh/Thành Phố <span>*</span></label><br>
+                <input type="text"  name="tinh"><br>
+              </div>
+              <div class="phone">
+                <label for="phone">Số Điện Thoại <span>*</span></label><br>
+                <input type="number"  name="phone"><br>
+              </div>
+              <div class="email1">
+                <label for="email">Email<span>*</span></label><br>
+                <input type="email"  name="email"><br>
+              </div>
+              <div class="luu">LƯU ĐỊA CHỈ</div>
+            </div>
+            <!-- hết địa chỉ thanh toán  -->
+            <div class="diachinhanhang" style="display:none;" id="infor8">
+              <div class="ten">
+                <div class="ten1">
+                 <label for="username">Tên<span>*</span></label><br>
+                 <input type="text"  name="username"><br>
+                </div>
+                <div class="ten2">
+                 <label for="username">Họ <span>*</span></label><br>
+                 <input type="text" name="username"><br>
+                </div>
+               </div>
+               <div class="phone">
+                <label for="phone">Tên Công Ty(tùy chọn)</label><br>
+                <input type="text"  name="phone"><br>
+              </div>
+              <div class="quocgia">
+                <label for="countries">Quốc gia/Khu vực</label><br>
+                <select id="countries" name="countries" >
+                  <option value="" disabled selected hidden>Chọn quốc gia/khu vực</option>
+                    <option value="vn">Việt Nam</option>
+                    <option value="us">United States</option>
+                    <option value="us">ANH</option>
+                    <option value="us">PHÁP</option>
+                    <option value="us">ĐỨC</option>
+                    <option value="us">TRUNG QUỐC</option>
+                    <option value="us">LÀO</option>
+                    <option value="us">Camphuchia</option>
+                    <option value="us">THÁI LAN</option>
+                    <option value="us">ẤN ĐỘ</option>
+                    <option value="us">NGA</option>
+                    <option value="us">SINGANPORE</option>
+                    <option value="us">HÀN QUỐC</option>
+                    <option value="us">NHẬT BẢN</option>
+                    <option value="us">ĐÀI LOAN</option>
+                    <option value="us">IRAN</option>
+                </select>
+              </div>
+               <div class="diachigiao">
+                 <label for="diachi">Địa Chỉ <span>*</span></label><br>
+                 <input class="diachigiao1" type="text"  name="diachi"><br>
+                 <input type="text"  name="diachi" placeholder="apartment,suite,unit,etc"><br>
+               </div>
+               <div class="email1">
+                 <label for="email">Mã bưu điện<span>*</span></label><br>
+                 <input type="email"  name="email"><br>
+               </div>
+               <div class="tinh">
+                <label for="tinh">Tỉnh/Thành Phố <span>*</span></label><br>
+                <input type="text"  name="tinh"><br>
+              </div>
+              <div class="luu">LƯU ĐỊA CHỈ</div>
+            </div>
+            <!-- hết phần 4 -->
+            <div class="taikhoan" id="infor5" style="display:none;">
+              <div class="ten1">
+                <label for="username">Tên<span>*</span></label><br>
+                <input type="text"  name="username"><br>
+               </div>
+               <div class="ten2">
+                <label for="username">Họ <span>*</span></label><br>
+                <input type="text" name="username"><br>
+               </div>
+             
+              <div class="phone">
+                <label for="phone">Tên hiển thị<span>*</span></label><br>
+                <input type="text"  name="phone"><br>
+                <p>Tên này sẽ hiển thị trong trang Tài khoản và phần Đánh giá sản phẩm</p>
+              </div>
+              <div class="email1">
+                <label for="email">Địa chỉ email<span>*</span></label><br>
+                <input type="email"  name="email"><br>
+              </div>
+              <fieldset>
+                <legend><h2>Thay đổi mật khẩu</h2></legend>
+                <div class="uname">
+                  <label for="uname">Mật khẩu hiện tại (bỏ trống nếu không đổi)</label><br>
+                  <input type="text" name="uname" required>
+                </div>
+                
+               <div class=" psw">
+                <label for="psw">Mật khẩu mới(bỏ trống nếu không đổi)</label><br>
+                <input type="password" name="psw" required>
+               </div>
+                <div class="pswn">
+                  <label for="pswn">Xác nhận mật khẩu mới</label><br>
+                  <input type="password" name="pswn" required>
+                 </div>
+            </fieldset>
+          </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<!-- footer -->
+<footer id="footer">
+    <div class="footer__top grid">
+      <div class="footer__top-menu container">
+        <ul>
+          <li><a href="#">MUA HÀNG</a></li>
+          <li><a href="#">ĐỔI TRẢ</a></li>
+          <li><a href="#">SHIP HÀNG</a></li>
+          <li><a href="#">THANH TOÁN</a></li>
+          <li><a href="#">SIZE GUIDE</a></li>
+          <li><a href="#">CÁCH CHECK CODE</a></li>
+        </ul>
+        <div class="footer__top-sm">
+          <ul>
+            <li>
+              <a href="#">
+                <img src="/assets/img/SM/fb.png" alt="">
+                <span>FACEBOOK</span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <img src="/assets/img/SM/instagram.png" alt="">
+                <span>INSTAGRAM</span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <img src="/assets/img/SM/shopee.jpg" alt="">
+                <span>SHOPEE</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__top-product">
+        <ul>
+          <li><a href="#">GIÀY</a></li>
+          <li><a href="#">ÁO</a></li>
+          <li><a href="#">SALE</a></li>
+          <li><a href="#">NAM</a></li>
+          <li><a href="#">NỮ</a></li>
+          <li><a href="#">CONVERSE</a></li>
+          <li><a href="#">VANS</a></li>
+        </ul>
+      </div>
+      <div class="footer__top-address">
+        <div class="address__title">
+          CONVERSE.STORE_
+        </div>
+        <div class="address__converse">
+          <div>CỬA HÀNG:</div>
+          <div>
+            <span>
+              Số 8. Nguyễn Hoàng Tôn,
+            </span>
+            <span>
+              Xuân La, Tây Hồ, Hà Nội
+            </span>
+          </div>
+          <span class="address__number">
+            <a href="#">+84 866.866.368</a>
+          </span>
+        </div>
+        <div class="address__blog">
+          <a href="#">BLOG</a>
+        </div>
+      </div>
+      <div class="footer__top-form">
+        <div class="form__title">
+          NHẬN ƯU ĐÃI TỪ CỬA HÀNG
+        </div>
+
+        <div class="form__input">
+          <input type="email" placeholder="NHẬP MAIL BẠN">
+        </div>
+
+        <div class="form__btn">
+          <button>NHẬN NGAY</button>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bot">
+      Copyright 2023. Converse.Store_
+    </div>
+  </footer>
+  
+   
+  <script src="assets/js/user.js"></script>
+</body>
+</html>

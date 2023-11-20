@@ -318,7 +318,26 @@ function cachthanhtoan(pay) {
   document.getElementById('thanhtoanchuyenkhoan').style.display = 'none';
   document.getElementById(`thanhtoan${pay}`).style.display = 'block';
 }
+ // test rồi chỉnh lại
+ function increment() {
+  // Lấy giá trị hiện tại của input
+  var inputElement = document.getElementById('quantity');
+  var currentValue = parseInt(inputElement.value);
 
+  // Tăng giá trị lên 1 và gán lại cho input
+  inputElement.value = currentValue + 1;
+}
+
+function decrement() {
+  // Lấy giá trị hiện tại của input
+  var inputElement = document.getElementById('quantity');
+  var currentValue = parseInt(inputElement.value);
+
+  // Giảm giá trị đi 1 nếu giá trị hiện tại lớn hơn 1
+  if (currentValue > 1) {
+      inputElement.value = currentValue - 1;
+  }
+}
 
 
 //Product tab

@@ -879,3 +879,67 @@ button {
   background: none;
   border: 0px solid #ececec;
 }
+/* phần chi tiết đơn hàng  */
+.fullbody{
+  margin-left: 20%;
+  margin-right: 20%;
+  margin-top: 20px;
+}
+.thanks p{
+  background: transparent;
+    border: 2px dashed #7a9c59;
+    color: #7a9c59;
+    font-weight: 600;
+    width: 100%;
+    text-align: center;
+    font-size: 16px;
+    margin-bottom: 30px;
+    padding: 15px 25px
+}
+.chitietdon li{
+  padding-left: 20px;
+    padding-right: 20px;
+    margin-bottom: 20px;
+    border-right: 1px solid #dfdfdf;
+    text-align: center;
+    color: #4C4C4C;
+}
+.chitietdon{
+  display:flex;
+}
+.tratien{
+  font-size: 16px;
+    background-color: #f8f8f8;
+    padding:20px 15px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+.chitietdonhang h2{
+  text-align: center;
+}
+.bangchitiet th{
+  text-align: left;
+}
+table tr th{
+  padding: 15px 10px;
+    text-align: center;
+    font-size: 18px;
+    text-transform: uppercase;
+    line-height: 1.4;
+     width:100%;
+}
+.chitietdonhang h2{
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.chotbill{
+  padding: 30px;
+    border: 2px dashed #d5d5d5;
+    margin-bottom: 50px;
+}
+.chotbill span{
+  line-height: 1.8;
+    font-style: italic;
+    margin-bottom: 20px;
+}

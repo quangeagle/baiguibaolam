@@ -18,4 +18,18 @@ function thaydoidangnhap(pay) {
     document.getElementById('infor' + pay).style.display = 'block'
   }
   
+  document.addEventListener('DOMContentLoaded', function() {
+    const emailInput = document.getElementById('email');
+    const errorMessage = document.getElementById('error-message');
   
+    emailInput.addEventListener('input', function() {
+      const inputValue = emailInput.value.trim().toLowerCase();
+      const isGmail = inputValue.endsWith('@gmail.com');
+  
+      if (!isGmail) {
+        errorMessage.classList.remove('hidden');
+      } else {
+        errorMessage.classList.add('hidden');
+      }
+    });
+  });
